@@ -8,13 +8,13 @@ declare module "@emotion/react" {
       accent: string;
       background: string;
       shadow: string;
-    }
+    };
 
     fonts: {
       title: string;
       content: string;
       code: string;
-    }
+    };
 
     maxWidth: string;
   }

@@ -9,6 +9,7 @@ module.exports = {
     "plugin:react/recommended",
     "plugin:@typescript-eslint/recommended",
     "plugin:@typescript-eslint/eslint-recommended",
+    "plugin:prettier/recommended",
   ],
   parser: "@typescript-eslint/parser",
   parserOptions: {
@@ -17,23 +18,13 @@ module.exports = {
     },
     ecmaVersion: 12,
   },
-  plugins: [
-    "react",
-    "@typescript-eslint",
-    "react",
-    "@emotion",
-  ],
+  plugins: ["react", "@typescript-eslint", "react", "@emotion"],
   settings: {
     react: {
       version: "detect",
     },
   },
-  rules: {
-    indent: ["error", 2],
-    "linebreak-style": ["error", "unix"],
-    quotes: ["error", "double", {avoidEscape: true}],
-    semi: ["error", "always"],
-  },
+  rules: {},
   overrides: [
     {
       files: ["*.js", "*.jsx"],
@@ -44,5 +35,4 @@ module.exports = {
       },
     },
   ],
-
 };

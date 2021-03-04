@@ -14,12 +14,12 @@ export const Header: React.FC = () => {
     {
       href: "/",
       icon: <FontAwesomeIcon icon={faUser} />,
-      content: <>About</>
+      content: <>About</>,
     },
     {
       href: "https://github.com/NagayamaRyoga",
       icon: <FontAwesomeIcon icon={faGithub} />,
-      content: <>GitHub</>
+      content: <>GitHub</>,
     },
   ];
 
@@ -93,7 +93,7 @@ export const Header: React.FC = () => {
           </li>
         ))}
       </ul>
-    </header >
+    </header>
   );
 };
 
