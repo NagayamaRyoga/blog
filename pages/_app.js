@@ -1,3 +1,8 @@
-const MyApp = ({ Component, pageProps }) => <Component {...pageProps} />;
+import React from "react";
 
-export default MyApp;
+// eslint-disable-next-line react/prop-types
+const App = ({ Component, pageProps }) => <>
+  <Component {...pageProps} />
+</>;
+
+export default App;
