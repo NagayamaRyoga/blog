@@ -4,7 +4,9 @@
   "private": true,
   "description": "Nagayama Ryoga's blog",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start"
   },
   "repository": {
     "type": "git",
@@ -20,5 +22,10 @@
     "next": "^10.0.7",
     "react": "^17.0.1",
     "react-dom": "^17.0.1"
+  },
+  "devDependencies": {
+    "@types/node": "^14.14.31",
+    "@types/react": "^17.0.2",
+    "typescript": "^4.2.2"
   }
 }
