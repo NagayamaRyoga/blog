@@ -1,0 +1,18 @@
+{
+  "name": "blog",
+  "version": "1.0.0",
+  "description": "Nagayama Ryoga's blog",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/NagayamaRyoga/blog.git"
+  },
+  "author": "NagayamaRyoga <nagayama15@sec.is.kit.ac.jp>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/NagayamaRyoga/blog/issues"
+  },
+  "homepage": "https://nagayamaryoga.github.io/blog"
+}
