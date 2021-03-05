@@ -9,5 +9,11 @@ export const defaultTheme: Theme = {
     shadow: "rgba(226, 52, 226, 0.3)",
   },
 
+  fonts: {
+    title: '"Noto Sans JP", sans-serif',
+    content: "",
+    code: "",
+  },
+
   maxWidth: "40rem",
 };

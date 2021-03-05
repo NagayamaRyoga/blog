@@ -1,6 +1,9 @@
 import React from "react";
 import Link from "next/link";
 import { css, useTheme } from "@emotion/react";
+import { faUser } from "@fortawesome/free-solid-svg-icons";
+import { faGithub } from "@fortawesome/free-brands-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 import { basePath } from "@/next.config";
 
@@ -10,10 +13,12 @@ export const Header: React.FC = () => {
   const links = [
     {
       href: "/",
+      icon: <FontAwesomeIcon icon={faUser} />,
       content: <>About</>
     },
     {
       href: "https://github.com/NagayamaRyoga",
+      icon: <FontAwesomeIcon icon={faGithub} />,
       content: <>GitHub</>
     },
   ];
@@ -37,6 +42,7 @@ export const Header: React.FC = () => {
           grid-area: "header";
           margin: 0;
           color: ${theme.colors.accent};
+          font-family: ${theme.fonts.title};
           font-size: 1.6rem;
           font-weight: 100;
         `}
@@ -61,27 +67,28 @@ export const Header: React.FC = () => {
           padding: 0.2rem 0;
           list-style: none;
           color: ${theme.colors.accent};
+          font-family: ${theme.fonts.title};
           font-size: 1.2rem;
           font-weight: 100;
         `}
       >
-        {links.map(({ href, content }) => (
+        {links.map(({ href, icon, content }) => (
           <li
             key={href}
             css={css`
+              display: inline-flex;
               margin-inline-start: 1.2rem;
+              vertical-align: middle;
             `}
           >
             <a
               css={css`
-                display: inline-flex;
-                vertical-align: middle;
                 color: inherit;
                 text-decoration: none;
               `}
               href={href}
             >
-              {content}
+              {icon}&nbsp;{content}
             </a>
           </li>
         ))}

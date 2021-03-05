@@ -10,6 +10,12 @@ declare module "@emotion/react" {
       shadow: string;
     }
 
+    fonts: {
+      title: string;
+      content: string;
+      code: string;
+    }
+
     maxWidth: string;
   }
 }
