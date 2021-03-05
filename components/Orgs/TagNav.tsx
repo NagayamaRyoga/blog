@@ -2,8 +2,9 @@ import React from "react";
 import Link from "next/link";
 import { css, useTheme } from "@emotion/react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faCaretRight, faTag } from "@fortawesome/free-solid-svg-icons";
+import { faCaretRight } from "@fortawesome/free-solid-svg-icons";
 
+import Tag from "@/components/Atoms/Tag";
 import { basePath } from "@/next.config";
 
 export type TagNavProps = {
@@ -12,11 +13,6 @@ export type TagNavProps = {
 
 export const TagNav: React.FC<TagNavProps> = ({ tag }) => {
   const theme = useTheme();
-
-  const linkStyle = css`
-    color: ${theme.colors.accent};
-    text-decoration: none;
-  `;
 
   return (
     <nav
@@ -34,7 +30,13 @@ export const TagNav: React.FC<TagNavProps> = ({ tag }) => {
       `}
     >
       <Link href="/">
-        <a href={`${basePath}/`} css={linkStyle}>
+        <a
+          href={`${basePath}/`}
+          css={css`
+            color: ${theme.colors.accent};
+            text-decoration: none;
+          `}
+        >
           記事一覧
         </a>
       </Link>
@@ -45,12 +47,7 @@ export const TagNav: React.FC<TagNavProps> = ({ tag }) => {
           margin-inline-end: 0.5em;
         `}
       />
-      <Link href={`/tags/${tag}`}>
-        <a href={`${basePath}/tags/${tag}`} css={linkStyle}>
-          <FontAwesomeIcon icon={faTag} />
-          &nbsp;{tag}
-        </a>
-      </Link>
+      <Tag tag={tag} />
     </nav>
   );
 };

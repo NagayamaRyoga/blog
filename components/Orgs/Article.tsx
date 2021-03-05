@@ -1,10 +1,8 @@
 import React from "react";
 import Link from "next/link";
 import { css, useTheme } from "@emotion/react";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faTag } from "@fortawesome/free-solid-svg-icons";
 
-import { basePath } from "@/next.config";
+import Tag from "@/components/Atoms/Tag";
 
 export type ArticleProps = {
   url: string;
@@ -93,18 +91,7 @@ export const ArticlePreview: React.FC<ArticleProps> = ({ url, title, publishedAt
             `}
             key={tag}
           >
-            <Link href={`/tags/${tag}`}>
-              <a
-                href={`${basePath}/tags/${tag}`}
-                css={css`
-                  color: inherit;
-                  text-decoration: none;
-                `}
-              >
-                <FontAwesomeIcon icon={faTag} />
-                &nbsp;{tag}
-              </a>
-            </Link>
+            <Tag tag={tag} />
           </li>
         ))}
       </ul>
