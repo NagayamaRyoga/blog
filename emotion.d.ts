@@ -9,5 +9,7 @@ declare module "@emotion/react" {
       background: string;
       shadow: string;
     }
+
+    maxWidth: string;
   }
 }

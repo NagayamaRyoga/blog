@@ -8,4 +8,6 @@ export const defaultTheme: Theme = {
     background: "#eaddf0",
     shadow: "rgba(226, 52, 226, 0.3)",
   },
+
+  maxWidth: "40rem",
 };
