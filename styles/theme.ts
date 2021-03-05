@@ -11,7 +11,7 @@ export const defaultTheme: Theme = {
 
   fonts: {
     title: '"Noto Sans JP", sans-serif',
-    content: "",
+    content: '"游ゴシック Medium", YuGothic, YuGothicM, "Hiragino Kaku Gothic ProN", "Hiragino Kaku Gothic Pro", メイリオ, Meiryo, sans-serif',
     code: "",
   },
 

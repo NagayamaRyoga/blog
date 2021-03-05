@@ -3,7 +3,7 @@ import { css, useTheme } from "@emotion/react";
 
 import Header from "@/components/Orgs/Header";
 
-export const BlogTemplate: React.FC = () => {
+export const BlogTemplate: React.FC = ({ children }) => {
   const theme = useTheme();
 
   return (
@@ -14,7 +14,7 @@ export const BlogTemplate: React.FC = () => {
       `}
     >
       <Header />
-      <main></main>
+      <main>{children}</main>
     </div>
   );
 };

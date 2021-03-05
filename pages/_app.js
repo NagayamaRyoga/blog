@@ -11,7 +11,7 @@ const App = ({ Component, pageProps }) => (
   <>
     <Head>
       <link rel="preconnect" href="https://fonts.gstatic.com" />
-      <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@100;300&display=swap" />
+      <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@100;300;500&display=swap" />
     </Head>
     <ThemeProvider theme={defaultTheme}>
       {globalStyles}

@@ -12,6 +12,14 @@ export const globalStyles = (
 
       body {
         background: ${theme.colors.background};
+        color: ${theme.colors.main};
+        font-family: ${theme.fonts.content};
+      }
+
+      p {
+        margin-block-start: 1em;
+        margin-block-end: 1em;
+        line-height: 1.65;
       }
 
       * {
