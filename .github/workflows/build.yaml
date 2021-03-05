@@ -23,3 +23,10 @@ jobs:
 
       - name: npm run export
         run: npm run export
+
+      - name: Deploy
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./out
+        if: github.ref == 'refs/heads/master'
