@@ -30,6 +30,8 @@
   },
   "devDependencies": {
     "@arkweid/lefthook": "^0.7.2",
+    "@babel/core": "^7.13.8",
+    "@emotion/babel-preset-css-prop": "^11.2.0",
     "@emotion/eslint-plugin": "^11.2.0",
     "@types/node": "^14.14.31",
     "@types/react": "^17.0.2",
