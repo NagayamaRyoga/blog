@@ -5,6 +5,7 @@ import Head from "next/head";
 import { ArticleSummaries, readArticleSummuries } from "@/server/articles";
 import BlogTemplate from "@/components/Templates/BlogTemplate";
 import ArticlePreview from "@/components/Orgs/ArticlePreview";
+import Tags from "@/components/Orgs/Tags";
 
 export type PageProps = {
   articles: ArticleSummaries;
@@ -30,6 +31,7 @@ const Page: React.FC<PageProps> = ({ articles }) => (
       {articles.map((article) => (
         <ArticlePreview key={article.slug} article={article} />
       ))}
+      <Tags articles={articles} />
     </BlogTemplate>
   </>
 );

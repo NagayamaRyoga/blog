@@ -13,6 +13,7 @@ export const BlogTemplate: React.FC = ({ children }) => {
         padding: 0 1rem;
         padding-bottom: 1px;
         max-width: ${theme.maxWidth};
+        min-width: ${theme.minWidth};
         box-sizing: content-box;
       `}
     >

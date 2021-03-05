@@ -26,14 +26,14 @@ export const getStaticProps: GetStaticProps<PageProps> = async (ctx) => {
 
 export const getStaticPaths: GetStaticPaths = async () => {
   const articles = await readArticleSummuries();
-  const tagSet = new Set(articles.map((x) => x.tags).reduce((res, tags) => [...res, ...tags], []));
+  const tagSet = new Set(articles.map((x) => x.tags).flat());
   const tags = Array.from(tagSet).sort();
 
   const paths = tags.map((tag) => ({ params: { tag } }));
 
   return {
     paths,
-    fallback: true,
+    fallback: false,
   };
 };
 

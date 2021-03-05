@@ -10,7 +10,7 @@ export type TagProps = {
   tag: string;
 };
 
-export const Tag: React.FC<TagProps> = ({ tag }) => {
+export const Tag: React.FC<TagProps> = ({ tag, children }) => {
   const theme = useTheme();
 
   return (
@@ -24,6 +24,7 @@ export const Tag: React.FC<TagProps> = ({ tag }) => {
       >
         <FontAwesomeIcon icon={faTag} />
         &nbsp;{tag}
+        {children}
       </a>
     </Link>
   );

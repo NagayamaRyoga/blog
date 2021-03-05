@@ -16,6 +16,7 @@ declare module "@emotion/react" {
       code: string;
     };
 
+    minWidth: string;
     maxWidth: string;
   }
 }
