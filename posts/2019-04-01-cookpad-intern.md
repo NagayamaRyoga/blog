@@ -12,7 +12,7 @@ tags:
 
 インターンシップの主な講義内容、課題はGitHub上で公開されています。
 
-[https://github.com/NagayamaRyoga/MinSwift-workshop](https://github.com/NagayamaRyoga/MinSwift-workshop)
+https://github.com/NagayamaRyoga/MinSwift-workshop
 
 ## 作成するコンパイラについて
 

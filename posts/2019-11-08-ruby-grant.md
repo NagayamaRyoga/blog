@@ -9,7 +9,7 @@ Rubyアソシエーションが主催する [2019年度Rubyアソシエーショ
 
 題目は「複数ファイルに対応したプリコンパイル機構の作成」です。
 
-[Cookpad株式会社でのインターン](https://nagayamaryoga.github.io/posts/2019-09-18-cookpad-summer-intern-ruby/) に参加した際、メンターの方からの勧めがあり応募したところ審査を通過しました。
+[Cookpad株式会社でのインターン](https://nagayamaryoga.github.io/blog/2019-09-18-cookpad-summer-intern-ruby) に参加した際、メンターの方からの勧めがあり応募したところ審査を通過しました。
 
 以下が応募の際に提出した提案の内容です (一部省略)。
 

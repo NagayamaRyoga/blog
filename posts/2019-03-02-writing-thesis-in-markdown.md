@@ -15,7 +15,7 @@ tags:
 
 そこでMarkdownからLaTeXを経由してPDFを生成するポータブルな環境を構築しました。
 
-[https://github.com/NagayamaRyoga/recipro](https://github.com/NagayamaRyoga/recipro)
+https://github.com/NagayamaRyoga/recipro
 
 これの技術的な構成要素について簡単に説明します。
 
