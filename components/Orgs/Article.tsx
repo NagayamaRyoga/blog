@@ -3,6 +3,7 @@ import Link from "next/link";
 import { css, useTheme } from "@emotion/react";
 
 import Tag from "@/components/Atoms/Tag";
+import { basePath } from "@/next.config";
 
 export type ArticleProps = {
   url: string;
@@ -38,7 +39,7 @@ export const ArticlePreview: React.FC<ArticleProps> = ({ url, title, publishedAt
       >
         <Link href={url}>
           <a
-            href={url}
+            href={`${basePath}${url}`}
             css={css`
               color: inherit;
               text-decoration: none;
@@ -61,7 +62,7 @@ export const ArticlePreview: React.FC<ArticleProps> = ({ url, title, publishedAt
       >
         <Link href={url}>
           <a
-            href={url}
+            href={`${basePath}${url}`}
             css={css`
               color: inherit;
               text-decoration: none;
