@@ -1,0 +1,58 @@
+import React from "react";
+import Link from "next/link";
+import { css, useTheme } from "@emotion/react";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faCaretRight, faTag } from "@fortawesome/free-solid-svg-icons";
+
+import { basePath } from "@/next.config";
+
+export type TagNavProps = {
+  tag: string;
+};
+
+export const TagNav: React.FC<TagNavProps> = ({ tag }) => {
+  const theme = useTheme();
+
+  const linkStyle = css`
+    color: ${theme.colors.accent};
+    text-decoration: none;
+  `;
+
+  return (
+    <nav
+      css={css`
+        margin-block-start: 1rem;
+        margin-block-end: 1rem;
+        padding-block-start: 1rem;
+        padding-block-end: 1rem;
+        padding-inline-start: 2rem;
+        padding-inline-end: 2rem;
+        font-family: ${theme.fonts.title};
+        font-weight: 500;
+        background-color: ${theme.colors.base};
+        filter: drop-shadow(6px 6px 0 ${theme.colors.shadow});
+      `}
+    >
+      <Link href="/">
+        <a href={`${basePath}/`} css={linkStyle}>
+          記事一覧
+        </a>
+      </Link>
+      <FontAwesomeIcon
+        icon={faCaretRight}
+        css={css`
+          margin-inline-start: 0.5em;
+          margin-inline-end: 0.5em;
+        `}
+      />
+      <Link href={`/tags/${tag}`}>
+        <a href={`${basePath}/tags/${tag}`} css={linkStyle}>
+          <FontAwesomeIcon icon={faTag} />
+          &nbsp;{tag}
+        </a>
+      </Link>
+    </nav>
+  );
+};
+
+export default TagNav;

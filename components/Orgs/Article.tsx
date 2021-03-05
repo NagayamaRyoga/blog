@@ -4,6 +4,8 @@ import { css, useTheme } from "@emotion/react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTag } from "@fortawesome/free-solid-svg-icons";
 
+import { basePath } from "@/next.config";
+
 export type ArticleProps = {
   url: string;
   title: string;
@@ -17,7 +19,7 @@ export const ArticlePreview: React.FC<ArticleProps> = ({ url, title, publishedAt
   const theme = useTheme();
 
   return (
-    <section
+    <article
       css={css`
         margin-block-start: 1rem;
         margin-block-end: 1rem;
@@ -91,21 +93,23 @@ export const ArticlePreview: React.FC<ArticleProps> = ({ url, title, publishedAt
             `}
             key={tag}
           >
-            <a
-              css={css`
-                color: inherit;
-                text-decoration: none;
-              `}
-              href={`/tags/${tag}`}
-            >
-              <FontAwesomeIcon icon={faTag} />
-              &nbsp;{tag}
-            </a>
+            <Link href={`/tags/${tag}`}>
+              <a
+                href={`${basePath}/tags/${tag}`}
+                css={css`
+                  color: inherit;
+                  text-decoration: none;
+                `}
+              >
+                <FontAwesomeIcon icon={faTag} />
+                &nbsp;{tag}
+              </a>
+            </Link>
           </li>
         ))}
       </ul>
       <div>{children}</div>
-    </section>
+    </article>
   );
 };
 

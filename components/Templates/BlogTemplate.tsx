@@ -10,7 +10,10 @@ export const BlogTemplate: React.FC = ({ children }) => {
     <div
       css={css`
         margin: 0 auto;
+        padding: 0 1rem;
+        padding-bottom: 1px;
         max-width: ${theme.maxWidth};
+        box-sizing: content-box;
       `}
     >
       <Header />

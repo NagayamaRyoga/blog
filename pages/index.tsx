@@ -14,7 +14,9 @@ export const getStaticProps: GetStaticProps<PageProps> = async () => {
   const articles = await readArticleSummuries();
 
   return {
-    props: { articles },
+    props: {
+      articles,
+    },
   };
 };
 
