@@ -4,6 +4,7 @@ import { css, useTheme } from "@emotion/react";
 
 import { ArticleSummary } from "@/server/articles";
 import Article from "@/components/Orgs/Article";
+import { basePath } from "@/next.config";
 
 export type ArticlePreviewProps = {
   article: ArticleSummary;
@@ -32,7 +33,7 @@ export const ArticlePreview: React.FC<ArticlePreviewProps> = ({ article }) => {
       >
         <Link href={url}>
           <a
-            href={url}
+            href={`${basePath}${url}`}
             css={css`
               display: inline-block;
               padding: 0.2em 2em;
