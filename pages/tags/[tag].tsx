@@ -40,7 +40,7 @@ export const getStaticPaths: GetStaticPaths = async () => {
 const Page: React.FC<PageProps> = ({ tag, articles }) => (
   <>
     <Head>
-      <title>{tag} | 有限猿定理</title>
+      <title>Tag: {tag} | 有限猿定理</title>
       <meta name="description" content="有限猿定理：Nagayama Ryogaの技術記事がメインのブログです。" />
     </Head>
     <BlogTemplate>
