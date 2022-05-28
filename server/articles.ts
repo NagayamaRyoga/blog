@@ -5,6 +5,7 @@ interface SummaryFile {
       publishedAt: string;
       tags: string[];
       thumbnail?: string;
+      ogpImage?: string;
       preview: string;
       sourceBase: string;
     };
@@ -18,6 +19,7 @@ export interface ArticleSummary {
   publishedAt: string;
   tags: string[];
   thumbnail?: string;
+  ogpImage?: string;
   preview: string;
   sourceBase: string;
 }
@@ -30,6 +32,7 @@ export interface ArticleType {
   publishedAt: string;
   tags: string[];
   thumbnail?: string;
+  ogpImage?: string;
   bodyContent: string;
   bodyHtml: string;
   preview: string;

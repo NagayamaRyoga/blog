@@ -3,8 +3,8 @@ title: Cookpad Summer Internship 2019 高難易度コースに参加した
 publishedAt: 2019-09-18
 tags:
     - Ruby
-# thumbnail: images/2019-09-18-cookpad-summer-intern-ruby.png
-ogpImage: images/2019-09-18-cookpad-summer-intern-ruby.png
+# thumbnail: https://nagayamaryoga.github.io/blog/images/2019-09-18-cookpad-summer-intern-ruby.png
+ogpImage: https://nagayamaryoga.github.io/blog/images/2019-09-18-cookpad-summer-intern-ruby.png
 ---
 
 2019年8月16日から2019年9月13日まで、インターンとしてクックパッド株式会社でRuby処理系の開発を経験しました。

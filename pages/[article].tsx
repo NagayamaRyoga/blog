@@ -40,14 +40,22 @@ const Page: React.FC<PageProps> = ({ article }) => {
   const title = article.title;
   const publishedAt = new Date(article.publishedAt);
   const tags = article.tags;
+  const preview = article.preview;
+  const ogpImage = article.ogpImage ?? article.thumbnail;
 
   const theme = useTheme();
 
   return (
     <>
       <Head>
-        <title>{article.title} | 有限猿定理</title>
-        <meta name="description" content={article.preview} />
+        <title>{title} | 有限猿定理</title>
+        <meta name="description" content={preview} />
+        <meta property="og:type" content="article" />
+        <meta property="og:title" content={title} />
+        <meta property="og:description" content={preview} />
+        <meta property="og:site_name" content="有限猿定理" />
+        {ogpImage && <meta property="og:image" content={ogpImage} />}
+        <meta name="twitter:card" content="summary_large_image" />
       </Head>
       <BlogTemplate>
         <Article url={url} title={title} publishedAt={publishedAt} tags={tags}>

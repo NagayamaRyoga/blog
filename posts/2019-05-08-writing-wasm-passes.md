@@ -4,8 +4,8 @@ publishedAt: 2019-05-08
 tags:
     - WebAssembly
     - Binaryen
-# thumbnail: images/2019-05-08-writing-wasm-passes.png
-ogpImage: images/2019-05-08-writing-wasm-passes.png
+# thumbnail: https://nagayamaryoga.github.io/blog/images/2019-05-08-writing-wasm-passes.png
+ogpImage: https://nagayamaryoga.github.io/blog/images/2019-05-08-writing-wasm-passes.png
 ---
 
 LLVMはLLVM IRを操作・走査できるカスタムパスの作成をサポートしており、`opt`コマンドの`-load`オプションを利用することで作成したカスタムパスを簡単に適用できます。
