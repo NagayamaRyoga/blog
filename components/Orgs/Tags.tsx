@@ -8,16 +8,17 @@ export type TagsProps = {
   articles: ArticleSummaries;
 };
 
+const compareString = (a: string, b: string): number => (a > b ? +1 : a < b ? -1 : 0);
+
 export const Tags: React.FC<TagsProps> = ({ articles }) => {
   const tagTallies = articles
-    .map((x) => x.tags)
-    .flat()
-    .reduce((tally, tag) => {
-      tally[tag] = (tally[tag] ?? 0) + 1;
-      return tally;
-    }, {} as { [K in string]: number });
+    .flatMap((x) => x.tags)
+    .reduce((tally: { [K in string]: number }, tag) => {
+      const count = (tally[tag] ?? 0) + 1;
+      return { ...tally, [tag]: count };
+    }, {});
 
-  const tagAndOccurrencies = Object.entries(tagTallies).sort((a, b) => a[0].localeCompare(b[0]));
+  const tagAndOccurrencies = Object.entries(tagTallies).sort((a, b) => compareString(a[0], b[0]));
 
   const theme = useTheme();
 
