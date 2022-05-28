@@ -10,7 +10,8 @@
     "export": "npm run build && next export",
     "start": "next start",
     "fmt": "eslint --fix \"./**/*.{js,ts,jsx,tsx}\"",
-    "test": "eslint \"./**/*.{js,ts,jsx,tsx}\""
+    "test": "eslint \"./**/*.{js,ts,jsx,tsx}\"",
+    "ogp": "open -a 'Google Chrome' ogp/index.html"
   },
   "repository": {
     "type": "git",

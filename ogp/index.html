@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>OGP Generator</title>
+    <style>
+      :root {
+        --base: #ffffff;
+        --main: #2f3131;
+        --light: #515555;
+        --accent: #e234e2;
+        --background: #eaddf0;
+        --shadow: rgba(226, 52, 226, 0.3);
+      }
+      html,
+      body {
+        margin: 0;
+      }
+      .ogp {
+        width: 1200px;
+        height: 630px;
+        background: var(--background);
+        font-family: "游ゴシック Medium", YuGothic, YuGothicM, "Hiragino Kaku Gothic ProN", "Hiragino Kaku Gothic Pro", メイリオ, Meiryo, sans-serif;
+        letter-spacing: 1px;
+      }
+      .ogp .card-wrapper {
+        box-sizing: border-box;
+        width: 630px;
+        height: 630px;
+        margin: 0 auto;
+        padding: 16px;
+      }
+      .ogp .card {
+        display: flex;
+        flex-flow: column;
+        justify-content: center;
+        box-sizing: border-box;
+        width: calc(630px - 16px * 2);
+        height: calc(630px - 16px * 2);
+        padding: 16px 24px;
+        background: var(--base);
+        filter: drop-shadow(6px 6px 0 var(--shadow));
+      }
+      .ogp .title {
+        margin-block-start: 0.5rem;
+        margin-block-end: 0.5rem;
+        border-bottom: solid 1px var(--accent);
+        color: var(--accent);
+        font-size: 42px;
+        font-weight: bold;
+        text-align: center;
+      }
+      .ogp .published-at {
+        margin: 8px 16px;
+        color: var(--main);
+        font-size: 24px;
+        font-weight: bold;
+      }
+      .ogp .tags {
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-end;
+        margin: 24px;
+        padding: 0;
+        list-style: none;
+      }
+      .ogp .tag {
+        margin-left: 16px;
+        font-size: 24px;
+        color: var(--accent);
+      }
+      .ogp .tag__image {
+        display: inline-block;
+        width: 24px;
+        height: 24px;
+        margin-right: 4px;
+        vertical-align: middle;
+        fill: var(--accent);
+      }
+      .ogp .tag__name {
+        display: inline-block;
+        vertical-align: middle;
+      }
+      .ogp .brand {
+        text-align: center;
+        color: var(--light);
+        font-size: 24px;
+        font-weight: lighter;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="app">
+      <main id="ogp" class="ogp">
+        <div class="card-wrapper">
+          <div class="card">
+            <p class="published-at">{{publishedAt}}</p>
+            <h1 class="title">{{article.title}}</h1>
+            <ul class="tags">
+              <li v-for="tag in article.tags" class="tag">
+                <svg class="tag__image" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
+                  <!--! Font Awesome Pro 6.1.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. -->
+                  <path
+                    d="M48 32H197.5C214.5 32 230.7 38.74 242.7 50.75L418.7 226.7C443.7 251.7 443.7 292.3 418.7 317.3L285.3 450.7C260.3 475.7 219.7 475.7 194.7 450.7L18.75 274.7C6.743 262.7 0 246.5 0 229.5V80C0 53.49 21.49 32 48 32L48 32zM112 176C129.7 176 144 161.7 144 144C144 126.3 129.7 112 112 112C94.33 112 80 126.3 80 144C80 161.7 94.33 176 112 176z"
+                  />
+                </svg>
+                <span class="tag__name">{{tag}}</span>
+              </li>
+            </ul>
+            <h2 class="brand">有限猿定理</h2>
+          </div>
+        </div>
+      </main>
+      <input type="file" @change="upload" />
+      <button @click="save">Save</button>
+    </div>
+    <script src="https://unpkg.com/vue@3.2.36/dist/vue.global.js"></script>
+    <script src="https://unpkg.com/moment@2.29.3/moment.js"></script>
+    <script src="https://unpkg.com/html-to-image@1.9.0/dist/html-to-image.js"></script>
+    <script>
+      Vue.createApp({
+        data() {
+          return {
+            article: {
+              title: "TITLE",
+              publishedAt: "2000-01-01",
+              tags: ["TAG1", "TAG2"],
+              sourceBase: "example.md",
+            },
+          };
+        },
+        computed: {
+          publishedAt() {
+            return moment(this.article.publishedAt).format("YYYY-MM-DD");
+          },
+          slug() {
+            return this.article.sourceBase.replace(/\.md$/, "");
+          },
+          imageName() {
+            return `${this.slug}.png`;
+          },
+        },
+        methods: {
+          async upload(e) {
+            const reader = new FileReader();
+            reader.addEventListener(
+              "load",
+              (e) => {
+                this.article = JSON.parse(e.target.result);
+              },
+              false,
+            );
+            reader.readAsText(e.target.files[0]);
+          },
+          async save() {
+            const ogp = document.getElementById("ogp");
+            const dateUrl = await htmlToImage.toPng(ogp);
+
+            const a = document.createElement("a");
+            a.download = this.imageName;
+            a.href = dateUrl;
+            a.click();
+          },
+        },
+      }).mount("#app");
+    </script>
+  </body>
+</html>
