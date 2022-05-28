@@ -2,17 +2,15 @@ import React from "react";
 import { css, useTheme } from "@emotion/react";
 
 import { ArticleSummary } from "@/server/articles";
-import { Link } from "@/components/Atoms/Link";
 import { Thumbnail } from "@/components/Atoms/Thumbnail";
 import Article from "@/components/Orgs/Article";
+import { ArticleLink } from "@/components/Orgs/ArticleLink";
 
 export type ArticlePreviewProps = {
   article: ArticleSummary;
 };
 
 export const ArticlePreview: React.FC<ArticlePreviewProps> = ({ article }) => {
-  const slug = article.slug;
-  const url = `/${slug}`;
   const thumbnail = article.thumbnail;
   const preview = article.preview;
 
@@ -21,9 +19,9 @@ export const ArticlePreview: React.FC<ArticlePreviewProps> = ({ article }) => {
   return (
     <Article article={article}>
       {thumbnail && (
-        <Link href={url}>
+        <ArticleLink article={article}>
           <Thumbnail src={thumbnail} />
-        </Link>
+        </ArticleLink>
       )}
       <p>{preview}……</p>
       <div
@@ -34,8 +32,8 @@ export const ArticlePreview: React.FC<ArticlePreviewProps> = ({ article }) => {
           text-align: center;
         `}
       >
-        <Link
-          href={url}
+        <ArticleLink
+          article={article}
           css={css`
             display: inline-block;
             padding: 0.2em 2em;
@@ -46,7 +44,7 @@ export const ArticlePreview: React.FC<ArticlePreviewProps> = ({ article }) => {
           `}
         >
           続きを読む
-        </Link>
+        </ArticleLink>
       </div>
     </Article>
   );

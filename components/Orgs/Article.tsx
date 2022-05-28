@@ -1,8 +1,8 @@
 import React from "react";
 import { css, useTheme } from "@emotion/react";
 
-import { Link } from "@/components/Atoms/Link";
 import Tag from "@/components/Atoms/Tag";
+import { ArticleLink } from "@/components/Orgs/ArticleLink";
 import { ArticleSummary } from "@/server/articles";
 
 export type ArticleProps = {
@@ -13,7 +13,6 @@ export type ArticleProps = {
 export const ArticlePreview: React.FC<ArticleProps> = ({ children, article }) => {
   const publishedAt = new Date(article.publishedAt);
   const date = `${publishedAt.getFullYear()}-${publishedAt.getMonth() + 1}-${publishedAt.getDate()}`;
-  const url = `/${article.slug}`;
 
   const theme = useTheme();
 
@@ -37,15 +36,15 @@ export const ArticlePreview: React.FC<ArticleProps> = ({ children, article }) =>
           font-weight: 500;
         `}
       >
-        <Link
-          href={url}
+        <ArticleLink
+          article={article}
           css={css`
             color: inherit;
             text-decoration: none;
           `}
         >
           {date}
-        </Link>
+        </ArticleLink>
       </div>
       <h1
         css={css`
@@ -58,15 +57,15 @@ export const ArticlePreview: React.FC<ArticleProps> = ({ children, article }) =>
           font-weight: 100;
         `}
       >
-        <Link
-          href={url}
+        <ArticleLink
+          article={article}
           css={css`
             color: inherit;
             text-decoration: none;
           `}
         >
           {article.title}
-        </Link>
+        </ArticleLink>
       </h1>
       <ul
         css={css`

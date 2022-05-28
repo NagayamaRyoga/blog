@@ -6,6 +6,7 @@ interface SummaryFile {
       tags: string[];
       thumbnail?: string;
       ogpImage?: string;
+      externalUrl?: string;
       preview: string;
       sourceBase: string;
     };
@@ -20,6 +21,7 @@ export interface ArticleSummary {
   tags: string[];
   thumbnail?: string;
   ogpImage?: string;
+  externalUrl?: string;
   preview: string;
   sourceBase: string;
 }

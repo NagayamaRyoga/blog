@@ -26,7 +26,7 @@ export const getStaticProps: GetStaticProps<PageProps> = async (ctx) => {
 export const getStaticPaths: GetStaticPaths = async () => {
   const articles = await readArticleSummuries();
 
-  const paths = articles.map(({ slug }) => ({ params: { article: slug } }));
+  const paths = articles.filter(({ externalUrl }) => externalUrl === undefined).map(({ slug }) => ({ params: { article: slug } }));
 
   return {
     paths,
