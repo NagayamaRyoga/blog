@@ -3,7 +3,11 @@ import { css, useTheme } from "@emotion/react";
 
 import Header from "@/components/Orgs/Header";
 
-export const BlogTemplate: React.FC = ({ children }) => {
+export type BlogTemplateProps = {
+  children: React.ReactNode;
+};
+
+export const BlogTemplate: React.FC<BlogTemplateProps> = ({ children }) => {
   const theme = useTheme();
 
   return (

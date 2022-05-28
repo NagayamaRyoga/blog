@@ -7,10 +7,11 @@ import { faTag } from "@fortawesome/free-solid-svg-icons";
 import { basePath } from "@/next.config";
 
 export type TagProps = {
+  children?: React.ReactNode;
   tag: string;
 };
 
-export const Tag: React.FC<TagProps> = ({ tag, children }) => {
+export const Tag: React.FC<TagProps> = ({ children, tag }) => {
   const theme = useTheme();
 
   return (

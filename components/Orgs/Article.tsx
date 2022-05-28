@@ -6,13 +6,14 @@ import Tag from "@/components/Atoms/Tag";
 import { basePath } from "@/next.config";
 
 export type ArticleProps = {
+  children: React.ReactNode;
   url: string;
   title: string;
   publishedAt: Date;
   tags: string[];
 };
 
-export const ArticlePreview: React.FC<ArticleProps> = ({ url, title, publishedAt, tags, children }) => {
+export const ArticlePreview: React.FC<ArticleProps> = ({ children, url, title, publishedAt, tags }) => {
   const date = `${publishedAt.getFullYear()}-${publishedAt.getMonth() + 1}-${publishedAt.getDate()}`;
 
   const theme = useTheme();

@@ -22,10 +22,13 @@
     "jsx": "preserve",
     "baseUrl": "./",
     "paths": {
-      "@/*": ["*"]
+      "@/*": [
+        "*"
+      ]
     },
-    "jsxImportSource": "@emotion/react"
-},
+    "jsxImportSource": "@emotion/react",
+    "incremental": true
+  },
   "include": [
     "next-env.d.ts",
     "**/*.ts",
