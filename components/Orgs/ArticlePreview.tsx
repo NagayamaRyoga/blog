@@ -3,6 +3,7 @@ import Link from "next/link";
 import { css, useTheme } from "@emotion/react";
 
 import { ArticleSummary } from "@/server/articles";
+import { Thumbnail } from "@/components/Atoms/Thumbnail";
 import Article from "@/components/Orgs/Article";
 import { basePath } from "@/next.config";
 
@@ -16,12 +17,21 @@ export const ArticlePreview: React.FC<ArticlePreviewProps> = ({ article }) => {
   const title = article.title;
   const publishedAt = new Date(article.publishedAt);
   const tags = article.tags;
+  const thumbnail = article.thumbnail;
   const preview = article.preview;
+  const aritlceUrl = `${basePath}${url}`;
 
   const theme = useTheme();
 
   return (
     <Article url={url} title={title} publishedAt={publishedAt} tags={tags}>
+      {thumbnail && (
+        <Link href={url}>
+          <a href={aritlceUrl}>
+            <Thumbnail src={thumbnail} />
+          </a>
+        </Link>
+      )}
       <p>{preview}……</p>
       <div
         css={css`
@@ -33,7 +43,7 @@ export const ArticlePreview: React.FC<ArticlePreviewProps> = ({ article }) => {
       >
         <Link href={url}>
           <a
-            href={`${basePath}${url}`}
+            href={aritlceUrl}
             css={css`
               display: inline-block;
               padding: 0.2em 2em;

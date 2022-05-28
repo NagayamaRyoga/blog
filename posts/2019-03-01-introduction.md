@@ -4,6 +4,8 @@ publishedAt: 2019-03-01
 tags:
     - Nuxt.js
     - Markdown
+# thumbnail: images/2019-03-01-introduction.png
+ogpImage: images/2019-03-01-introduction.png
 ---
 
 ## はじめに

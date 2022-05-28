@@ -4,6 +4,7 @@ interface SummaryFile {
       title: string;
       publishedAt: string;
       tags: string[];
+      thumbnail?: string;
       preview: string;
       sourceBase: string;
     };
@@ -16,6 +17,7 @@ export interface ArticleSummary {
   title: string;
   publishedAt: string;
   tags: string[];
+  thumbnail?: string;
   preview: string;
   sourceBase: string;
 }
@@ -27,6 +29,7 @@ export interface ArticleType {
   title: string;
   publishedAt: string;
   tags: string[];
+  thumbnail?: string;
   bodyContent: string;
   bodyHtml: string;
   preview: string;

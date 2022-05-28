@@ -4,6 +4,8 @@ publishedAt: 2019-04-01
 tags:
     - Swift
     - コンパイラ
+# thumbnail: images/2019-04-01-cookpad-intern.png
+ogpImage: images/2019-04-01-cookpad-intern.png
 ---
 
 2019年3月28日(木)にクックパッド株式会社で開催された1dayインターンシップのSwiftコンパイラコースに参加しました。

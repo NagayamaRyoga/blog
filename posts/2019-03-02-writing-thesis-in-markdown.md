@@ -5,6 +5,8 @@ tags:
     - Markdown
     - LaTeX
     - Pandoc
+# thumbnail: images/2019-03-02-writing-thesis-in-markdown.png
+ogpImage: images/2019-03-02-writing-thesis-in-markdown.png
 ---
 
 ## はじめに
