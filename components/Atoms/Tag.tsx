@@ -1,10 +1,9 @@
 import React from "react";
-import Link from "next/link";
 import { css, useTheme } from "@emotion/react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTag } from "@fortawesome/free-solid-svg-icons";
 
-import { basePath } from "@/next.config";
+import { Link } from "@/components/Atoms/Link";
 
 export type TagProps = {
   children?: React.ReactNode;
@@ -15,18 +14,16 @@ export const Tag: React.FC<TagProps> = ({ children, tag }) => {
   const theme = useTheme();
 
   return (
-    <Link href={`/tags/${tag}`}>
-      <a
-        href={`${basePath}/tags/${tag}`}
-        css={css`
-          color: ${theme.colors.accent};
-          text-decoration: none;
-        `}
-      >
-        <FontAwesomeIcon icon={faTag} />
-        &nbsp;{tag}
-        {children}
-      </a>
+    <Link
+      href={`/tags/${tag}`}
+      css={css`
+        color: ${theme.colors.accent};
+        text-decoration: none;
+      `}
+    >
+      <FontAwesomeIcon icon={faTag} />
+      &nbsp;{tag}
+      {children}
     </Link>
   );
 };

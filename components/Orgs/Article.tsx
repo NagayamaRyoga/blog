@@ -1,20 +1,19 @@
 import React from "react";
-import Link from "next/link";
 import { css, useTheme } from "@emotion/react";
 
+import { Link } from "@/components/Atoms/Link";
 import Tag from "@/components/Atoms/Tag";
-import { basePath } from "@/next.config";
+import { ArticleSummary } from "@/server/articles";
 
 export type ArticleProps = {
   children: React.ReactNode;
-  url: string;
-  title: string;
-  publishedAt: Date;
-  tags: string[];
+  article: ArticleSummary;
 };
 
-export const ArticlePreview: React.FC<ArticleProps> = ({ children, url, title, publishedAt, tags }) => {
+export const ArticlePreview: React.FC<ArticleProps> = ({ children, article }) => {
+  const publishedAt = new Date(article.publishedAt);
   const date = `${publishedAt.getFullYear()}-${publishedAt.getMonth() + 1}-${publishedAt.getDate()}`;
+  const url = `/${article.slug}`;
 
   const theme = useTheme();
 
@@ -38,16 +37,14 @@ export const ArticlePreview: React.FC<ArticleProps> = ({ children, url, title, p
           font-weight: 500;
         `}
       >
-        <Link href={url}>
-          <a
-            href={`${basePath}${url}`}
-            css={css`
-              color: inherit;
-              text-decoration: none;
-            `}
-          >
-            {date}
-          </a>
+        <Link
+          href={url}
+          css={css`
+            color: inherit;
+            text-decoration: none;
+          `}
+        >
+          {date}
         </Link>
       </div>
       <h1
@@ -61,16 +58,14 @@ export const ArticlePreview: React.FC<ArticleProps> = ({ children, url, title, p
           font-weight: 100;
         `}
       >
-        <Link href={url}>
-          <a
-            href={`${basePath}${url}`}
-            css={css`
-              color: inherit;
-              text-decoration: none;
-            `}
-          >
-            {title}
-          </a>
+        <Link
+          href={url}
+          css={css`
+            color: inherit;
+            text-decoration: none;
+          `}
+        >
+          {article.title}
         </Link>
       </h1>
       <ul
@@ -84,7 +79,7 @@ export const ArticlePreview: React.FC<ArticleProps> = ({ children, url, title, p
           list-style: none;
         `}
       >
-        {tags.map((tag) => (
+        {article.tags.map((tag) => (
           <li
             css={css`
               display: inline-flex;

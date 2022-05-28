@@ -26,18 +26,10 @@ export interface ArticleSummary {
 
 export type ArticleSummaries = ArticleSummary[];
 
-export interface ArticleType {
-  slug: string;
-  title: string;
-  publishedAt: string;
-  tags: string[];
-  thumbnail?: string;
-  ogpImage?: string;
+export type ArticleType = ArticleSummary & {
   bodyContent: string;
   bodyHtml: string;
-  preview: string;
-  sourceBase: string;
-}
+};
 
 export const readArticleSummuries = async (): Promise<ArticleSummaries> => {
   const rawSummaries: SummaryFile = (await import("../dist/summary.json")).default;

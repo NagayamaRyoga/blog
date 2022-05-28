@@ -1,11 +1,10 @@
 import React from "react";
-import Link from "next/link";
 import { css, useTheme } from "@emotion/react";
 import { faUser } from "@fortawesome/free-solid-svg-icons";
 import { faGithub } from "@fortawesome/free-brands-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
-import { basePath } from "@/next.config";
+import { Link } from "@/components/Atoms/Link";
 
 export const Header: React.FC = () => {
   const theme = useTheme();
@@ -47,16 +46,14 @@ export const Header: React.FC = () => {
           font-weight: 100;
         `}
       >
-        <Link href="/">
-          <a
-            href={basePath}
-            css={css`
-              color: inherit;
-              text-decoration: none;
-            `}
-          >
-            有限猿定理
-          </a>
+        <Link
+          href="/"
+          css={css`
+            color: inherit;
+            text-decoration: none;
+          `}
+        >
+          有限猿定理
         </Link>
       </h1>
       <ul

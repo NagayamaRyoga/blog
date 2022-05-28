@@ -35,11 +35,7 @@ export const getStaticPaths: GetStaticPaths = async () => {
 };
 
 const Page: React.FC<PageProps> = ({ article }) => {
-  const slug = article.slug;
-  const url = `/${slug}`;
   const title = article.title;
-  const publishedAt = new Date(article.publishedAt);
-  const tags = article.tags;
   const preview = article.preview;
   const ogpImage = article.ogpImage ?? article.thumbnail;
 
@@ -58,7 +54,7 @@ const Page: React.FC<PageProps> = ({ article }) => {
         <meta name="twitter:card" content="summary_large_image" />
       </Head>
       <BlogTemplate>
-        <Article url={url} title={title} publishedAt={publishedAt} tags={tags}>
+        <Article article={article}>
           <div dangerouslySetInnerHTML={{ __html: article.bodyHtml }} css={contentStyles(theme)} />
         </Article>
       </BlogTemplate>

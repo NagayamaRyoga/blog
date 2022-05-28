@@ -1,11 +1,10 @@
 import React from "react";
-import Link from "next/link";
 import { css, useTheme } from "@emotion/react";
 
 import { ArticleSummary } from "@/server/articles";
+import { Link } from "@/components/Atoms/Link";
 import { Thumbnail } from "@/components/Atoms/Thumbnail";
 import Article from "@/components/Orgs/Article";
-import { basePath } from "@/next.config";
 
 export type ArticlePreviewProps = {
   article: ArticleSummary;
@@ -14,22 +13,16 @@ export type ArticlePreviewProps = {
 export const ArticlePreview: React.FC<ArticlePreviewProps> = ({ article }) => {
   const slug = article.slug;
   const url = `/${slug}`;
-  const title = article.title;
-  const publishedAt = new Date(article.publishedAt);
-  const tags = article.tags;
   const thumbnail = article.thumbnail;
   const preview = article.preview;
-  const aritlceUrl = `${basePath}${url}`;
 
   const theme = useTheme();
 
   return (
-    <Article url={url} title={title} publishedAt={publishedAt} tags={tags}>
+    <Article article={article}>
       {thumbnail && (
         <Link href={url}>
-          <a href={aritlceUrl}>
-            <Thumbnail src={thumbnail} />
-          </a>
+          <Thumbnail src={thumbnail} />
         </Link>
       )}
       <p>{preview}……</p>
@@ -41,20 +34,18 @@ export const ArticlePreview: React.FC<ArticlePreviewProps> = ({ article }) => {
           text-align: center;
         `}
       >
-        <Link href={url}>
-          <a
-            href={aritlceUrl}
-            css={css`
-              display: inline-block;
-              padding: 0.2em 2em;
-              color: inherit;
-              text-decoration: none;
-              border: solid 1px ${theme.colors.accent};
-              border-radius: 1em;
-            `}
-          >
-            続きを読む
-          </a>
+        <Link
+          href={url}
+          css={css`
+            display: inline-block;
+            padding: 0.2em 2em;
+            color: inherit;
+            text-decoration: none;
+            border: solid 1px ${theme.colors.accent};
+            border-radius: 1em;
+          `}
+        >
+          続きを読む
         </Link>
       </div>
     </Article>
