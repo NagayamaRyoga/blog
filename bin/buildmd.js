@@ -7,7 +7,7 @@ const options = {
   filenamePrefix: "",
   renderLatex: true,
   highlightCode: true,
-  preview: 140,
+  preview: 180,
   previewDelimiter: "\n",
   includeBodyProps: false,
   includeTitle: true,
