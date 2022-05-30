@@ -5,7 +5,7 @@ tags:
     - Markdown
     - LaTeX
     - Pandoc
-# thumbnail: https://nagayamaryoga.github.io/blog/images/2019-03-02-writing-thesis-in-markdown.png
+# thumbnail: /blog/images/2019-03-02-writing-thesis-in-markdown.png
 ogpImage: https://nagayamaryoga.github.io/blog/images/2019-03-02-writing-thesis-in-markdown.png
 ---
 

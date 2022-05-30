@@ -3,7 +3,7 @@ title: Cookpad Summer Internship 2019 高難易度コースに参加した
 publishedAt: 2019-09-18
 tags:
     - Ruby
-# thumbnail: https://nagayamaryoga.github.io/blog/images/2019-09-18-cookpad-summer-intern-ruby.png
+# thumbnail: /blog/images/2019-09-18-cookpad-summer-intern-ruby.png
 ogpImage: https://nagayamaryoga.github.io/blog/images/2019-09-18-cookpad-summer-intern-ruby.png
 ---
 

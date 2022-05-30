@@ -37,7 +37,7 @@ export const getStaticPaths: GetStaticPaths = async () => {
 const Page: React.FC<PageProps> = ({ article }) => {
   const title = article.title;
   const preview = article.preview;
-  const ogpImage = article.ogpImage ?? article.thumbnail;
+  const ogpImage = article.ogpImage;
 
   const theme = useTheme();
 

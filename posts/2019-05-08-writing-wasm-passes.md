@@ -4,7 +4,7 @@ publishedAt: 2019-05-08
 tags:
     - WebAssembly
     - Binaryen
-# thumbnail: https://nagayamaryoga.github.io/blog/images/2019-05-08-writing-wasm-passes.png
+# thumbnail: /blog/images/2019-05-08-writing-wasm-passes.png
 ogpImage: https://nagayamaryoga.github.io/blog/images/2019-05-08-writing-wasm-passes.png
 ---
 

@@ -3,7 +3,7 @@ title: 2019年度Rubyアソシエーション開発助成 に採択された
 publishedAt: 2019-11-08
 tags:
     - Ruby
-# thumbnail: https://nagayamaryoga.github.io/blog/images/2019-11-08-ruby-grant.png
+# thumbnail: /blog/images/2019-11-08-ruby-grant.png
 ogpImage: https://nagayamaryoga.github.io/blog/images/2019-11-08-ruby-grant.png
 ---
 

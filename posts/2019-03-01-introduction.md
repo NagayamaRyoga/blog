@@ -4,7 +4,7 @@ publishedAt: 2019-03-01
 tags:
     - Nuxt.js
     - Markdown
-# thumbnail: https://nagayamaryoga.github.io/blog/images/2019-03-01-introduction.png
+# thumbnail: /blog/images/2019-03-01-introduction.png
 ogpImage: https://nagayamaryoga.github.io/blog/images/2019-03-01-introduction.png
 ---
 

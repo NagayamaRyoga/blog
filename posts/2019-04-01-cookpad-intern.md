@@ -4,7 +4,7 @@ publishedAt: 2019-04-01
 tags:
     - Swift
     - コンパイラ
-# thumbnail: https://nagayamaryoga.github.io/blog/images/2019-04-01-cookpad-intern.png
+# thumbnail: /blog/images/2019-04-01-cookpad-intern.png
 ogpImage: https://nagayamaryoga.github.io/blog/images/2019-04-01-cookpad-intern.png
 ---
 
