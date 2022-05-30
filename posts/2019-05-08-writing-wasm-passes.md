@@ -2,6 +2,7 @@
 title: Binaryenを使用してWebAssemblyを操作するパスを作成する
 publishedAt: 2019-05-08
 tags:
+    - C++
     - WebAssembly
     - Binaryen
 # thumbnail: /blog/images/2019-05-08-writing-wasm-passes.png
