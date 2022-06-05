@@ -1,5 +1,5 @@
 ---
-title: 【M3 Tech Blog】Rubyの値はどう表現されるか (クイズもあるよ)
+title: 【M3 Tech Blog】コード生成から考えるポインタの意味論
 publishedAt: 2022-03-04
 tags:
     - C
