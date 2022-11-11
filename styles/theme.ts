@@ -16,5 +16,5 @@ export const defaultTheme: Theme = {
   },
 
   minWidth: "30rem",
-  maxWidth: "40rem",
+  maxWidth: "60rem",
 };
