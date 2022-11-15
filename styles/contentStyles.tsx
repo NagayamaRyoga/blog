@@ -33,6 +33,27 @@ export const contentStyles = (theme: Theme): SerializedStyles => css`
     color: ${theme.colors.accent};
   }
 
+  table {
+    border-collapse: collapse;
+
+    thead {
+      tr {
+        border-bottom: double 3px ${theme.colors.main};
+      }
+    }
+
+    tbody {
+      tr {
+        border-bottom: solid 1px ${theme.colors.main};
+      }
+    }
+
+    th,
+    td {
+      padding: 0.5em 1em;
+    }
+  }
+
   strong {
     color: ${theme.colors.accent};
   }
