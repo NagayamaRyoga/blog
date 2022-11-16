@@ -63,12 +63,12 @@ export const contentStyles = (theme: Theme): SerializedStyles => css`
     font-size: 0.9em;
     font-family: ${theme.fonts.code};
     font-weight: 500;
-    background: #ececec;
+    background: #f6f5f5;
   }
 
   pre {
     padding: 0.5em 0.8em;
-    background: #f1f0f0;
+    background: #f5f4f4;
     overflow: auto;
 
     code {
