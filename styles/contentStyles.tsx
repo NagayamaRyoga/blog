@@ -72,6 +72,7 @@ export const contentStyles = (theme: Theme): SerializedStyles => css`
     overflow: auto;
 
     code {
+      padding: 0;
       background: none;
     }
   }
