@@ -51,6 +51,6 @@
     "eslint-plugin-react-hooks": "^4.2.0",
     "prettier": "^2.2.1",
     "processmd": "^4.6.0",
-    "typescript": "^4.2.2"
+    "typescript": "^5.0.4"
   }
 }
