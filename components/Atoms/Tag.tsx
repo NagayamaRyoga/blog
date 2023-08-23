@@ -4,10 +4,11 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTag } from "@fortawesome/free-solid-svg-icons";
 
 import { Link } from "@/components/Atoms/Link";
+import { ArticleTag } from "@/types/article";
 
 export type TagProps = {
   children?: React.ReactNode;
-  tag: string;
+  tag: ArticleTag;
 };
 
 export const Tag: React.FC<TagProps> = ({ children, tag }) => {
@@ -15,14 +16,14 @@ export const Tag: React.FC<TagProps> = ({ children, tag }) => {
 
   return (
     <Link
-      href={`/tags/${encodeURIComponent(tag)}`}
+      href={`/tags/${tag.slug}`}
       css={css`
         color: ${theme.colors.accent};
         text-decoration: none;
       `}
     >
       <FontAwesomeIcon icon={faTag} />
-      &nbsp;{tag}
+      &nbsp;{tag.name}
       {children}
     </Link>
   );

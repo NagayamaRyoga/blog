@@ -3,7 +3,7 @@ import { css, useTheme } from "@emotion/react";
 
 import Tag from "@/components/Atoms/Tag";
 import { ArticleLink } from "@/components/Orgs/ArticleLink";
-import { ArticleSummary } from "@/server/articles";
+import { ArticleSummary } from "@/types/article";
 
 export type ArticleProps = {
   children: React.ReactNode;
@@ -85,7 +85,7 @@ export const ArticlePreview: React.FC<ArticleProps> = ({ children, article }) =>
               margin-inline-end: 1em;
               vertical-align: middle;
             `}
-            key={tag}
+            key={tag.slug}
           >
             <Tag tag={tag} />
           </li>

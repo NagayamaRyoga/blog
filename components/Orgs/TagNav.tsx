@@ -5,9 +5,10 @@ import { faCaretRight } from "@fortawesome/free-solid-svg-icons";
 
 import { Link } from "@/components/Atoms/Link";
 import Tag from "@/components/Atoms/Tag";
+import { ArticleTag } from "@/types/article";
 
 export type TagNavProps = {
-  tag: string;
+  tag: ArticleTag;
 };
 
 export const TagNav: React.FC<TagNavProps> = ({ tag }) => {

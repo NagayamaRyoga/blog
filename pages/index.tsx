@@ -2,36 +2,37 @@ import React from "react";
 import { GetStaticProps } from "next";
 import Head from "next/head";
 
-import { ArticleSummaries, readArticleSummuries } from "@/server/articles";
+import { readArticleSummuries } from "@/server/articles";
 import BlogTemplate from "@/components/Templates/BlogTemplate";
 import ArticlePreview from "@/components/Orgs/ArticlePreview";
 import Tags from "@/components/Orgs/Tags";
+import { ArticleSummaries } from "@/types/article";
 
 export type PageProps = {
-  articles: ArticleSummaries;
+  articleSummaries: ArticleSummaries;
 };
 
 export const getStaticProps: GetStaticProps<PageProps> = async () => {
-  const articles = await readArticleSummuries();
+  const articleSummaries = await readArticleSummuries();
 
   return {
     props: {
-      articles,
+      articleSummaries,
     },
   };
 };
 
-const Page: React.FC<PageProps> = ({ articles }) => (
+const Page: React.FC<PageProps> = ({ articleSummaries }) => (
   <>
     <Head>
       <title>有限猿定理</title>
       <meta name="description" content="有限猿定理：Nagayama Ryogaの技術記事がメインのブログです。" />
     </Head>
     <BlogTemplate>
-      {articles.map((article) => (
+      {articleSummaries.articles.map((article) => (
         <ArticlePreview key={article.slug} article={article} />
       ))}
-      <Tags articles={articles} />
+      <Tags articleSummaries={articleSummaries} />
     </BlogTemplate>
   </>
 );

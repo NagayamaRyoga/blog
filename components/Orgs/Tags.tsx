@@ -1,24 +1,43 @@
 import React from "react";
 import { css, useTheme } from "@emotion/react";
 
-import { ArticleSummaries } from "@/server/articles";
 import Tag from "@/components/Atoms/Tag";
-
-export type TagsProps = {
-  articles: ArticleSummaries;
-};
+import { ArticleSummaries, ArticleSummary, ArticleTag } from "@/types/article";
 
 const compareString = (a: string, b: string): number => (a > b ? +1 : a < b ? -1 : 0);
 
-export const Tags: React.FC<TagsProps> = ({ articles }) => {
-  const tagTallies = articles
-    .flatMap((x) => x.tags)
-    .reduce((tally: { [K in string]: number }, tag) => {
-      const count = (tally[tag] ?? 0) + 1;
-      return { ...tally, [tag]: count };
-    }, {});
+type TagOccurrencies = {
+  tag: ArticleTag;
+  count: number;
+};
 
-  const tagAndOccurrencies = Object.entries(tagTallies).sort((a, b) => compareString(a[0], b[0]));
+const countTagOccurrences = (articles: ReadonlyArray<ArticleSummary>): ReadonlyArray<TagOccurrencies> => {
+  const allArticleTags = articles.flatMap((x) => x.tags);
+
+  const tagOccurrences = new Map<string, TagOccurrencies>();
+  for (const tag of allArticleTags) {
+    const tagOccurrence = tagOccurrences.get(tag.slug);
+    if (tagOccurrence !== undefined) {
+      tagOccurrences.set(tag.slug, { tag, count: tagOccurrence.count + 1 });
+    } else {
+      tagOccurrences.set(tag.slug, { tag, count: 1 });
+    }
+  }
+
+  return Array.from(tagOccurrences.values()).sort((a, b) => {
+    if (a.count !== b.count) {
+      return b.count - a.count;
+    }
+    return compareString(a.tag.slug, b.tag.slug);
+  });
+};
+
+export type TagsProps = {
+  articleSummaries: ArticleSummaries;
+};
+
+export const Tags: React.FC<TagsProps> = ({ articleSummaries }) => {
+  const tagOccurrences = countTagOccurrences(articleSummaries.articles);
 
   const theme = useTheme();
 
@@ -55,9 +74,9 @@ export const Tags: React.FC<TagsProps> = ({ articles }) => {
           }
         `}
       >
-        {tagAndOccurrencies.map(([tag, n]) => (
-          <li key={tag}>
-            <Tag tag={tag}>&nbsp;({n})</Tag>
+        {tagOccurrences.map(({ tag, count }) => (
+          <li key={tag.slug}>
+            <Tag tag={tag}>&nbsp;({count})</Tag>
           </li>
         ))}
       </ul>

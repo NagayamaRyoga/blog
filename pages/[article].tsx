@@ -3,13 +3,14 @@ import { GetStaticPaths, GetStaticProps } from "next";
 import Head from "next/head";
 import { useTheme } from "@emotion/react";
 
-import { ArticleType, readArticle, readArticleSummuries } from "@/server/articles";
+import { readArticle, readArticleSummuries } from "@/server/articles";
 import BlogTemplate from "@/components/Templates/BlogTemplate";
 import Article from "@/components/Orgs/Article";
 import { contentStyles } from "@/styles/contentStyles";
+import { ArticleContent } from "@/types/article";
 
 export type PageProps = {
-  article: ArticleType;
+  article: ArticleContent;
 };
 
 export const getStaticProps: GetStaticProps<PageProps> = async (ctx) => {
@@ -24,9 +25,9 @@ export const getStaticProps: GetStaticProps<PageProps> = async (ctx) => {
 };
 
 export const getStaticPaths: GetStaticPaths = async () => {
-  const articles = await readArticleSummuries();
+  const { articles } = await readArticleSummuries();
 
-  const paths = articles.filter(({ externalUrl }) => externalUrl === undefined).map(({ slug }) => ({ params: { article: slug } }));
+  const paths = articles.filter(({ externalUrl }) => externalUrl === null).map(({ slug }) => ({ params: { article: slug } }));
 
   return {
     paths,

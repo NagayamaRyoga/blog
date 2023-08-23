@@ -1,10 +1,10 @@
 import React from "react";
 import { css, useTheme } from "@emotion/react";
 
-import { ArticleSummary } from "@/server/articles";
 import { Thumbnail } from "@/components/Atoms/Thumbnail";
 import Article from "@/components/Orgs/Article";
 import { ArticleLink } from "@/components/Orgs/ArticleLink";
+import { ArticleSummary } from "@/types/article";
 
 export type ArticlePreviewProps = {
   article: ArticleSummary;

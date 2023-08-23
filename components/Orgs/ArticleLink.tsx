@@ -1,7 +1,7 @@
 import React from "react";
 
 import { Link } from "@/components/Atoms/Link";
-import { ArticleSummary } from "@/server/articles";
+import { ArticleSummary } from "@/types/article";
 
 export type ArticleLinkProps = React.AnchorHTMLAttributes<HTMLAnchorElement> & {
   children: React.ReactNode;
@@ -10,7 +10,7 @@ export type ArticleLinkProps = React.AnchorHTMLAttributes<HTMLAnchorElement> & {
 };
 
 export const ArticleLink: React.FC<ArticleLinkProps> = ({ children, article, ...props }) => {
-  return article.externalUrl === undefined ? (
+  return article.externalUrl === null ? (
     <Link {...props} href={`/${article.slug}`}>
       {children}
     </Link>

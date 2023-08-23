@@ -2,34 +2,36 @@ import React from "react";
 import { GetStaticPaths, GetStaticProps } from "next";
 import Head from "next/head";
 
-import { ArticleSummaries, readArticleSummuries } from "@/server/articles";
+import { readArticleSummuries } from "@/server/articles";
 import BlogTemplate from "@/components/Templates/BlogTemplate";
 import ArticlePreview from "@/components/Orgs/ArticlePreview";
 import TagNav from "@/components/Orgs/TagNav";
+import { ArticleSummary, ArticleTag } from "@/types/article";
 
 export type PageProps = {
-  tag: string;
-  articles: ArticleSummaries;
+  tag: ArticleTag;
+  articles: ReadonlyArray<ArticleSummary>;
 };
 
 export const getStaticProps: GetStaticProps<PageProps> = async (ctx) => {
-  const tag = ctx.params?.tag as string;
-  const articles = (await readArticleSummuries()).filter((x) => x.tags.includes(tag));
+  const tagSlug = ctx.params?.tag as string;
+
+  const { articles, tags } = await readArticleSummuries();
+  const taggedArticles = articles.filter((x) => x.tags.find((t) => t.slug === tagSlug) !== undefined);
+  const tag = tags.find((x) => x.slug === tagSlug) ?? { slug: "-", name: "?" };
 
   return {
     props: {
       tag,
-      articles,
+      articles: taggedArticles,
     },
   };
 };
 
 export const getStaticPaths: GetStaticPaths = async () => {
-  const articles = await readArticleSummuries();
-  const tagSet = new Set(articles.map((x) => x.tags).flat());
-  const tags = Array.from(tagSet).sort();
+  const { tags } = await readArticleSummuries();
 
-  const paths = tags.map((tag) => ({ params: { tag } }));
+  const paths = tags.map((tag) => ({ params: { tag: tag.slug } }));
 
   return {
     paths,
@@ -40,7 +42,7 @@ export const getStaticPaths: GetStaticPaths = async () => {
 const Page: React.FC<PageProps> = ({ tag, articles }) => (
   <>
     <Head>
-      <title>Tag: {tag} | 有限猿定理</title>
+      <title>Tag: {tag.slug} | 有限猿定理</title>
       <meta name="description" content="有限猿定理：Nagayama Ryogaの技術記事がメインのブログです。" />
     </Head>
     <BlogTemplate>
