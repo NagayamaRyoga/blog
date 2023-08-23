@@ -45,7 +45,7 @@ const Page: React.FC<PageProps> = ({ article }) => {
   return (
     <>
       <Head>
-        <title>{title} | 有限猿定理</title>
+        <title>{`${title} | 有限猿定理`}</title>
         <meta name="description" content={preview} />
         <meta property="og:type" content="article" />
         <meta property="og:title" content={title} />
