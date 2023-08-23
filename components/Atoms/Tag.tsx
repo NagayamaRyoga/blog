@@ -15,7 +15,7 @@ export const Tag: React.FC<TagProps> = ({ children, tag }) => {
 
   return (
     <Link
-      href={`/tags/${tag}`}
+      href={`/tags/${encodeURIComponent(tag)}`}
       css={css`
         color: ${theme.colors.accent};
         text-decoration: none;
