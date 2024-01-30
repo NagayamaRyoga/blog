@@ -7,7 +7,6 @@
     "dev": "next dev",
     "build": "npm run build:md && next build",
     "build:md": "node ./bin/buildmd.js",
-    "export": "npm run build && next export",
     "start": "next start",
     "fmt": "eslint --fix \"./**/*.{js,ts,jsx,tsx}\"",
     "test": "eslint \"./**/*.{js,ts,jsx,tsx}\"",
