@@ -720,7 +720,7 @@ widget::ghq::source() {
 # GitリポジトリをFZFで選択する
 widget::ghq::select() {
     local root="$(ghq root)"
-    widget::ghq::source | fzf --exit-0 --preview="fzf-preview-git ${(q)root}/{+2}" --preview-window="right:60%" | cut -d' ' -f2-
+    widget::ghq::source | fzf --exit-0 --ansi --preview="fzf-preview-git ${(q)root}/{+2}" --preview-window="right:60%" | cut -d' ' -f2-
 }
 # FZFで選択されたGitリポジトリにTmuxセッションを立てる
 widget::ghq::session() {
